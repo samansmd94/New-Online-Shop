@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -35,7 +36,7 @@ class Comment(models.Model):
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
-    body = models.TextField(verbose_name='Text')
+    body = models.TextField(verbose_name=_('Text'))
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS, verbose_name='Rating')
 
     active = models.BooleanField(default=True)

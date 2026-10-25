@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from environs import Env
+from django.contrib.messages import constants as messages
 
 # for environment variables
 env = Env()
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'allauth',
     'allauth.account',
+    'rosetta',
 
     # local apps
     'accounts',
@@ -142,11 +144,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'fa'
+LOCALE_PATHS = ('templates/locale', )
 
-# TIME_ZONE = 'UTC'
-TIME_ZONE = 'Asia/Tehran'
+LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'fa-ir'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
+
+TIME_ZONE = 'UTC'
+# TIME_ZONE = 'Asia/Tehran'
 
 USE_L10N = True
 
@@ -181,4 +190,15 @@ ACCOUNT_EMAIL_UNIQUE = True
 
 # crispy form settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.WARNING: 'warning',
+    messages.SUCCESS: 'success',
+    messages.INFO: 'info',
+    messages.DEBUG: 'debug',
+}
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.fallback.FallbackStorage"
+
 
