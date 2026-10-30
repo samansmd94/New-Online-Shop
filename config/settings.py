@@ -33,7 +33,6 @@ DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,12 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
     # third party apps
     'crispy_forms',
     'crispy_bootstrap4',
     'allauth',
     'allauth.account',
     'rosetta',
+    'jalali_date',
 
     # local apps
     'accounts',
