@@ -11,6 +11,7 @@ from ckeditor.fields import RichTextField
 class Product(models.Model):
     title = models.CharField(max_length=200)
     description = RichTextField()
+    short_description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     active = models.BooleanField(default=True)
